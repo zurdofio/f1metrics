@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 Telemetry Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Incluir Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>F1 Telemetry Dashboard</h1>
+    </header>
+
+    <main>
+        <aside class="filters">
+            <h2>Filtros</h2>
+            <div>
+                <label for="yearSelect">Año:</label>
+                <select id="yearSelect">
+                    <!-- Opciones de año se cargarán aquí -->
+                </select>
+            </div>
+            <div>
+                <label for="gpSelect">Gran Premio (GP):</label>
+                <select id="gpSelect" disabled>
+                    <!-- Opciones de GP se cargarán aquí -->
+                </select>
+            </div>
+            <div>
+                <label for="sessionSelect">Sesión:</label>
+                <select id="sessionSelect" disabled>
+                    <!-- Opciones de sesión se cargarán aquí -->
+                </select>
+            </div>
+            <div>
+                <label for="driverSelect">Piloto:</label>
+                <select id="driverSelect" disabled>
+                    <!-- Opciones de piloto se cargarán aquí -->
+                </select>
+            </div>
+            <div>
+                <label>Eje X Principal:</label>
+                <div>
+                    <input type="radio" id="xAxisTime" name="xAxisType" value="time" checked>
+                    <label for="xAxisTime" style="font-weight:normal; display:inline; margin-right:10px;">Tiempo</label>
+                    <input type="radio" id="xAxisLap" name="xAxisType" value="lap">
+                    <label for="xAxisLap" style="font-weight:normal; display:inline;">Vuelta</label>
+                </div>
+            </div>
+            <button id="loadDataButton" disabled>Cargar Datos</button>
+        </aside>
+
+        <section class="content-area">
+            <div id="infoDisplay">
+                <p>Selecciona los filtros y haz clic en "Cargar Datos" para ver la telemetría.</p>
+            </div>
+            <div id="plotArea">
+                <div id="speedPlotContainer" class="plot-container"></div>
+                <div id="rpmPlotContainer" class="plot-container"></div>
+                <div id="gearPlotContainer" class="plot-container"></div>
+                <div id="throttleBrakePlotContainer" class="plot-container"></div> <!-- Para Acelerador y Freno juntos -->
+                <div id="drsPlotContainer" class="plot-container"></div>
+                <!-- Mensaje de carga que se eliminará con JS -->
+                <div id="loadingPlotsMsg" style="text-align: center; padding: 20px;">Cargando gráficos...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Datos de telemetría F1</p>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

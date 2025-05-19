@@ -1,0 +1,192 @@
+/* css/style.css */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #15151e;
+    color: #e10600;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+main {
+    display: flex;
+    flex-grow: 1;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+.filters {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 280px;
+    flex-shrink: 0;
+    align-self: flex-start;
+}
+
+.filters h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: #e10600;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 0.5rem;
+}
+
+.filters div {
+    margin-bottom: 1.2rem;
+}
+
+.filters label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+/* Estilo para los contenedores de radio buttons */
+.filters div div { 
+    margin-top: 0.3rem;
+    display: flex; /* Para alinear radios y labels */
+    align-items: center;
+}
+
+.filters input[type="radio"] {
+    width: auto; 
+    margin-right: 5px;
+    vertical-align: middle; /* Mejor alineación vertical */
+}
+.filters input[type="radio"] + label { /* Estilo para labels junto a radios */
+    font-weight: normal;
+    display: inline;
+    margin-right: 15px; /* Espacio entre opciones de radio */
+    margin-bottom: 0; /* Resetear margen inferior */
+    vertical-align: middle;
+}
+
+
+.filters select, .filters button {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+    background-color: #fff;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.filters select:focus, .filters button:focus {
+    border-color: #e10600;
+    box-shadow: 0 0 0 2px rgba(225, 6, 0, 0.2);
+    outline: none;
+}
+
+.filters button {
+    background-color: #e10600;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    border: none;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.filters button:hover:not(:disabled) {
+    background-color: #c00500;
+}
+
+.filters button:disabled {
+    background-color: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.content-area {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    flex-grow: 1;
+}
+
+#infoDisplay {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    border-left: 4px solid #e10600;
+    font-size: 0.95rem;
+}
+
+#infoDisplay p {
+    margin: 0.5rem 0;
+}
+
+#plotArea > p { /* Estilo para los mensajes de "Selecciona X" en plotArea */
+    padding: 20px;
+    text-align: center;
+    color: #777;
+    font-style: italic;
+}
+
+
+.plot-container {
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    min-height: 280px; /* Altura de los gráficos individuales */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.no-data-msg {
+    color: #777;
+    font-style: italic;
+    padding: 20px;
+    text-align: center;
+}
+
+
+footer {
+    background-color: #333;
+    color: #bbb;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    .filters {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}

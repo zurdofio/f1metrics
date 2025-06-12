@@ -54,10 +54,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function timeStringToDate(timeStr) {
-        if (!timeStr || !/^\d{2}:\d{2}:\d{2}(\.\d{1,3})?$/.test(timeStr)) {
+        if (!timeStr) return null;
+
+        // Some data files contain an UTF-8 BOM or other non-digit characters
+        // before the timestamp. Remove those before validating.
+        timeStr = timeStr.replace(/^\uFEFF/, '').trim();
+
+        if (!/^\d{2}:\d{2}:\d{2}(\.\d{1,3})?$/.test(timeStr)) {
             // console.warn("Formato de timestamp de vuelta inválido:", timeStr);
             return null;
         }
+
         const mainTime = timeStr.substring(0, 8);
         const msPart = timeStr.length > 8 ? timeStr.substring(9) : "000";
 
